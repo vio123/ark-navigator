@@ -21,6 +21,6 @@ class PreviewItemViewHolder(override val containerView: View) :
     }
 
     override fun setImage(file: Path): Unit = with(containerView) {
-        loadImage(file, iv_image)
+        loadZoomImage(file, iv_image)
     }
 }

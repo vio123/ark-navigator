@@ -136,6 +136,7 @@ class GalleryFragment(
         (activity as MainActivity).setToolbarVisibility(isControlsVisible)
         preview_controls.isVisible = isControlsVisible
         FullscreenHelper.setSystemUIVisibility(isControlsVisible, requireActivity().window)
+        view_pager.isUserInputEnabled=isControlsVisible
     }
 
     override fun setTitle(title: String) {
