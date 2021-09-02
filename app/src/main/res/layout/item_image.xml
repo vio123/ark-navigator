@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout_root">
 
     <com.ortiz.touchview.TouchImageView
+        android:visibility="gone"
         android:layout_marginTop="50dp"
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</LinearLayout>
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:id="@+id/iv_image1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

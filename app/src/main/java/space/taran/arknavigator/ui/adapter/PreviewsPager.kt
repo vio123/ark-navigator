@@ -1,9 +1,7 @@
 package space.taran.arknavigator.ui.adapter
 
-import android.view.GestureDetector
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_image.view.*
@@ -12,7 +10,7 @@ import space.taran.arknavigator.mvp.presenter.adapter.PreviewsList
 import space.taran.arknavigator.mvp.view.item.PreviewItemViewHolder
 
 class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewItemViewHolder>() {
-
+    var nr=0
     override fun getItemCount() = presenter.getCount()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -49,6 +47,16 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
 
             override fun onSingleTapUp(e: MotionEvent?): Boolean {
                 presenter.itemClicked(holder.pos)
+                if(nr==0)
+                {
+                    nr=1;
+                    holder.itemView.iv_image1.visibility= View.GONE
+                    holder.itemView.iv_image.visibility= View.VISIBLE
+                }else{
+                    nr=0;
+                    holder.itemView.iv_image.visibility= View.GONE
+                    holder.itemView.iv_image1.visibility= View.VISIBLE
+                }
                 return true
             }
 
