@@ -22,9 +22,9 @@
         android:layout_height="20dp"
         android:background="@color/platinumGray"
         android:src="@drawable/ic_drag_handle"
-        android:tint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
 
     <ScrollView
         android:layout_width="match_parent"

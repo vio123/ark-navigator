@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.item_image.view.*
 import space.taran.arknavigator.mvp.model.dao.common.PredefinedIcon
 import space.taran.arknavigator.utils.imageForPredefinedIcon
 import space.taran.arknavigator.utils.loadImage
+import space.taran.arknavigator.utils.loadZoomImage
 import java.nio.file.Path
 
 //todo join with FileItemViewHolder, it is basically the same, just different sizes

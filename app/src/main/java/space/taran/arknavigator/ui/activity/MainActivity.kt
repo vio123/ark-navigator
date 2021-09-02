@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -193,7 +194,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         }
         presenter.backClicked()
     }
-
     companion object {
         const val REQUEST_CODE_PERMISSIONS: Int = 1
         const val REQUEST_CODE_SD_CARD_URI: Int = 2

@@ -19,6 +19,7 @@
         <activity
             android:name="space.taran.arknavigator.ui.activity.MainActivity"
             android:windowSoftInputMode="adjustPan">
+            android:configChanges="orientation|screenSize"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
