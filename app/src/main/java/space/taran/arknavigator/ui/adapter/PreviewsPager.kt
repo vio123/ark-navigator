@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_resources.view.*
 import kotlinx.android.synthetic.main.item_image.view.*
 import space.taran.arknavigator.R
 import space.taran.arknavigator.mvp.presenter.adapter.PreviewsList
@@ -24,9 +25,17 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
         holder.pos = position
         presenter.bindView(holder)
         val gestureDetector = getGestureDetector(holder)
-        holder.itemView.layout_root.setOnTouchListener { view, motionEvent ->
-            if (motionEvent.action == MotionEvent.ACTION_UP)
+        holder.itemView.layout_root1.setOnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_POINTER_DOWN)
                 view.performClick()
+            Log.i("tap","tapped")
+            gestureDetector.onTouchEvent(motionEvent)
+            return@setOnTouchListener true
+        }
+        holder.itemView.iv_image.setOnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_POINTER_DOWN)
+                view.performClick()
+            Log.i("tap","tapped1")
             gestureDetector.onTouchEvent(motionEvent)
             return@setOnTouchListener true
         }
@@ -44,7 +53,6 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
             override fun onDown(e: MotionEvent?): Boolean {
                 return true
             }
-
             override fun onSingleTapUp(e: MotionEvent?): Boolean {
                 presenter.itemClicked(holder.pos)
                 if(nr==0)
@@ -60,6 +68,10 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
                 return true
             }
 
+            override fun onShowPress(e: MotionEvent?) {
+                super.onShowPress(e)
+
+            }
         }
         return GestureDetectorCompat(holder.itemView.context, listener)
     }

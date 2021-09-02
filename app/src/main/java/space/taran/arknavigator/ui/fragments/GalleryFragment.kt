@@ -14,6 +14,7 @@ import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.dialog_tags.view.*
 import kotlinx.android.synthetic.main.fragment_gallery.*
 import kotlinx.android.synthetic.main.item_image.*
+import kotlinx.android.synthetic.main.item_image.view.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 import moxy.presenter.InjectPresenter
@@ -45,7 +46,7 @@ class GalleryFragment(
 
     private var dialogView: View? = null
     private var dialog: AlertDialog? = null
-
+    var nr=0
     private val presenter by moxyPresenter {
         GalleryPresenter(index, storage, resources).apply {
             Log.d(GALLERY_SCREEN, "creating GalleryPresenter")
@@ -108,7 +109,6 @@ class GalleryFragment(
                 workaround = false
             }
         })
-
         displayPreview(startAt)
 
         remove_resource_fab.setOnLongClickListener {

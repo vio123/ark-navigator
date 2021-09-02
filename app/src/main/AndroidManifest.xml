@@ -8,6 +8,7 @@
 
     <!-- todo: see "requestLegacyExternalStorage"-->
     <application
+        android:hardwareAccelerated="true"
         android:name="space.taran.arknavigator.ui.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
