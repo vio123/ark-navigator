@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.item_image.view.*
 import space.taran.arknavigator.R
 import space.taran.arknavigator.mvp.presenter.adapter.PreviewsList
 import space.taran.arknavigator.mvp.view.item.PreviewItemViewHolder
+import space.taran.arknavigator.utils.loadZoomImage
 
 class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewItemViewHolder>() {
     var nr=0
@@ -53,17 +54,15 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
             override fun onDown(e: MotionEvent?): Boolean {
                 return true
             }
-            override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+            override fun onSingleTapUp(e: MotionEvent?): Boolean {
                 presenter.itemClicked(holder.pos)
                 if(nr==0)
                 {
                     nr=1;
-                    holder.itemView.iv_image1.visibility= View.GONE
-                    holder.itemView.iv_image.visibility= View.VISIBLE
+                    holder.itemView.iv_image.maxZoom=4f
                 }else{
                     nr=0;
-                    holder.itemView.iv_image.visibility= View.GONE
-                    holder.itemView.iv_image1.visibility= View.VISIBLE
+                    holder.itemView.iv_image.maxZoom=0f
                 }
                 return true
             }

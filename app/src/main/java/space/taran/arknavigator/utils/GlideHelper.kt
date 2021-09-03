@@ -23,6 +23,4 @@ fun loadImage(file: Path, container: ImageView) =
         .load(file.toFile())
         .into(container)
 fun loadZoomImage(file: Path, container: TouchImageView) =
-    Picasso.with(container.context)
-        .load(file.toFile())
-        .into(container)
+    Picasso.get().load(file.toFile()).into(container)
