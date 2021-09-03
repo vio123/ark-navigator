@@ -62,7 +62,7 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
                     holder.itemView.iv_image.maxZoom=4f
                 }else{
                     nr=0;
-                    holder.itemView.iv_image.maxZoom=0f
+                    holder.itemView.iv_image.maxZoom=1f
                 }
                 return true
             }
