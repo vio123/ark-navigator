@@ -33,7 +33,7 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
             return@setOnTouchListener true
         }
         holder.itemView.iv_image.setOnTouchListener { view, motionEvent ->
-            if (motionEvent.action == MotionEvent.ACTION_POINTER_DOWN)
+            if (motionEvent.action == MotionEvent.ACTION_UP)
                 view.performClick()
             Log.i("tap","tapped1")
             gestureDetector.onTouchEvent(motionEvent)
@@ -53,7 +53,7 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
             override fun onDown(e: MotionEvent?): Boolean {
                 return true
             }
-            override fun onSingleTapUp(e: MotionEvent?): Boolean {
+            override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
                 presenter.itemClicked(holder.pos)
                 if(nr==0)
                 {
@@ -66,11 +66,6 @@ class PreviewsPager(val presenter: PreviewsList) : RecyclerView.Adapter<PreviewI
                     holder.itemView.iv_image1.visibility= View.VISIBLE
                 }
                 return true
-            }
-
-            override fun onShowPress(e: MotionEvent?) {
-                super.onShowPress(e)
-
             }
         }
         return GestureDetectorCompat(holder.itemView.context, listener)
